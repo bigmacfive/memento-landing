@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import styled from '@emotion/styled';
-import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, addDoc } from 'firebase/firestore';
+import matrixImage from '../assets/matrix.png';
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
@@ -79,7 +80,7 @@ const ImageWrapper = styled(motion.div)`
   border: 1px solid rgba(41, 255, 116, 0.1);
 `;
 
-const ImageContainer = styled(motion.div)`
+const ImageContainer = styled.div`
   width: 100%;
   overflow: hidden;
 `;
@@ -190,8 +191,6 @@ export const HeroSection = () => {
   const [titleText, setTitleText] = useState('Memento');
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
 
   useEffect(() => {
     const texts = ['Memento', 'Autonomous To-do list', 'Memento'];
@@ -228,28 +227,6 @@ export const HeroSection = () => {
 
     animateText();
   }, []);
-
-  const rotateX = useSpring(useTransform(mouseY, [-300, 300], [10, -10]), {
-    stiffness: 100,
-    damping: 30
-  });
-  const rotateY = useSpring(useTransform(mouseX, [-300, 300], [-10, 10]), {
-    stiffness: 100,
-    damping: 30
-  });
-
-  const handleMouseMove = (e) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top + rect.height / 2;
-    mouseX.set(e.clientX - centerX);
-    mouseY.set(e.clientY - centerY);
-  };
-
-  const handleMouseLeave = () => {
-    mouseX.set(0);
-    mouseY.set(0);
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -325,13 +302,8 @@ export const HeroSection = () => {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.6, delay: 0.6 }}
       >
-        <ImageContainer
-          style={{
-            rotateX,
-            rotateY,
-          }}
-        >
-          <AppImage src="/matrix.png" alt="Memento App Interface" />
+        <ImageContainer>
+          <AppImage src={matrixImage} alt="Memento App Interface" />
         </ImageContainer>
       </ImageWrapper>
     </HeroContainer>
