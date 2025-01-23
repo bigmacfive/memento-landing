@@ -325,7 +325,12 @@ export const HeroSection = () => {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.6, delay: 0.6 }}
       >
-        <ImageContainer>
+        <ImageContainer
+          style={{
+            rotateX,
+            rotateY,
+          }}
+        >
           <AppImage src="/matrix.png" alt="Memento App Interface" />
         </ImageContainer>
       </ImageWrapper>
