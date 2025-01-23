@@ -5,18 +5,25 @@ import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, addDoc } from 'firebase/firestore';
 import matrixImage from '../assets/matrix.png';
 
-const firebaseConfig = {
-  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
-  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
-  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
-  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
-  appId: import.meta.env.VITE_FIREBASE_APP_ID,
-  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID
-};
+let app;
+let db;
 
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+try {
+  const firebaseConfig = {
+    apiKey: "AIzaSyA8R_UpnWo6doq1b7fV1ExQbn9Oaxv0CHU",
+    authDomain: "memento-landing.firebaseapp.com",
+    projectId: "memento-landing",
+    storageBucket: "memento-landing.appspot.com",
+    messagingSenderId: "787705661114",
+    appId: "1:787705661114:web:ea31cebbf9d404b49ae483",
+    measurementId: "G-VYZJDLHR0Z"
+  };
+
+  app = initializeApp(firebaseConfig);
+  db = getFirestore(app);
+} catch (error) {
+  console.error("Firebase initialization error:", error);
+}
 
 const HeroContainer = styled.section`
   min-height: 100vh;
@@ -191,6 +198,7 @@ export const HeroSection = () => {
   const [titleText, setTitleText] = useState('Memento');
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState('');
 
   useEffect(() => {
     const texts = ['Memento', 'Autonomous To-do list', 'Memento'];
@@ -231,12 +239,23 @@ export const HeroSection = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (isSubmitting) return;
+    setError('');
 
     try {
       setIsSubmitting(true);
       
-      // Firestore에 직접 이메일 저장
-      await addDoc(collection(db, 'subscribers'), {
+      if (!db) {
+        throw new Error('Firebase is not initialized');
+      }
+
+      // 이메일 유효성 검사
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        throw new Error('Please enter a valid email address');
+      }
+
+      // Firestore에 이메일 저장
+      const subscribersRef = collection(db, 'subscribers');
+      await addDoc(subscribersRef, {
         email,
         timestamp: new Date().toISOString()
       });
@@ -245,7 +264,8 @@ export const HeroSection = () => {
       setEmail('');
     } catch (error) {
       console.error('Error submitting email:', error);
-      alert('Failed to subscribe. Please try again.');
+      setError(error.message || 'Failed to subscribe. Please try again.');
+      setIsSubmitted(false);
     } finally {
       setIsSubmitting(false);
     }
@@ -287,6 +307,16 @@ export const HeroSection = () => {
             {isSubmitting ? 'Submitting...' : isSubmitted ? 'Subscribed!' : 'Get Early Access'}
           </SubmitButton>
         </EmailForm>
+        {error && (
+          <SuccessMessage
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3 }}
+            style={{ color: '#ff4444' }}
+          >
+            {error}
+          </SuccessMessage>
+        )}
         {isSubmitted && (
           <SuccessMessage
             initial={{ opacity: 0, y: 10 }}
