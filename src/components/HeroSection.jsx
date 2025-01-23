@@ -26,7 +26,6 @@ const HeroContainer = styled.section`
   padding: 4rem 2rem;
   text-align: center;
   position: relative;
-  perspective: 1000px;
 `;
 
 const Title = styled(motion.h1)`
@@ -73,54 +72,16 @@ const ImageWrapper = styled(motion.div)`
   max-width: 800px;
   margin: 0.5rem auto 2rem;
   z-index: 1;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: -20px;
-    left: -20px;
-    right: -20px;
-    bottom: -20px;
-    background: linear-gradient(
-      45deg,
-      #A9BEC1 0%,
-      #121327 15%,
-      #B9E2C7 30%,
-      #45FF94 45%,
-      #99FFC6 60%,
-      #262634 75%,
-      #393FFF 90%,
-      #A9BEC1 100%
-    );
-    border-radius: 20px;
-    z-index: -1;
-    opacity: 0.5;
-    filter: blur(20px);
-    animation: gradientAnimation 8s linear infinite;
-    transition: all 0.3s ease;
-  }
-
-  @keyframes gradientAnimation {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
-  }
-`;
-
-const ImageContainer = styled(motion.div)`
-  width: 100%;
   border-radius: 16px;
   overflow: hidden;
   background: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(41, 255, 116, 0.1);
-  transform-style: preserve-3d;
+`;
+
+const ImageContainer = styled(motion.div)`
+  width: 100%;
+  overflow: hidden;
 `;
 
 const AppImage = styled.img`
@@ -363,15 +324,8 @@ export const HeroSection = () => {
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.6, delay: 0.6 }}
-        onMouseMove={handleMouseMove}
-        onMouseLeave={handleMouseLeave}
       >
-        <ImageContainer
-          style={{
-            rotateX,
-            rotateY,
-          }}
-        >
+        <ImageContainer>
           <AppImage src="/matrix.png" alt="Memento App Interface" />
         </ImageContainer>
       </ImageWrapper>
