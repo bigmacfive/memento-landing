@@ -372,7 +372,7 @@ export const HeroSection = () => {
             rotateY,
           }}
         >
-          <AppImage src="/matrix.png" alt="Memento App Interface" />
+          <AppImage src="matrix.png" alt="Memento App Interface" />
         </ImageContainer>
       </ImageWrapper>
     </HeroContainer>
