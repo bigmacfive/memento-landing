@@ -2,9 +2,11 @@ import React, { useEffect, useState } from 'react';
 import styled from '@emotion/styled';
 import { motion, AnimatePresence, useScroll, useSpring, useTransform } from 'framer-motion';
 import Lottie from 'lottie-react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { HeroSection } from './components/HeroSection.jsx';
 import { FeaturesSection } from './components/FeaturesSection.jsx';
 import { DownloadSection } from './components/DownloadSection.jsx';
+import { TermsSection } from './components/TermsSection.jsx';
 import logoAnimation from '/memento_logo_animation.json';
 
 const AppContainer = styled.div`
@@ -86,24 +88,15 @@ const createParticles = (count) => {
   }));
 };
 
-function App() {
+const HomePage = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0.5, y: 0.5 });
   const [particles] = useState(() => createParticles(30));
-  const [isLoading, setIsLoading] = useState(true);
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 30,
     restDelta: 0.001
   });
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 3000);
-
-    return () => clearTimeout(timer);
-  }, []);
 
   const handleMouseMove = (e) => {
     const x = e.clientX / window.innerWidth;
@@ -181,6 +174,45 @@ function App() {
         </ContentWrapper>
       </AppContainer>
     </>
+  );
+};
+
+function App() {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  return (
+    <Router>
+      <AnimatePresence>
+        {isLoading && (
+          <LoadingScreen
+            initial={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <Lottie
+              animationData={logoAnimation}
+              loop={false}
+              style={{ width: '300px' }}
+              onComplete={() => setIsLoading(false)}
+            />
+          </LoadingScreen>
+        )}
+      </AnimatePresence>
+      <AppContainer>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/terms" element={<TermsSection />} />
+        </Routes>
+      </AppContainer>
+    </Router>
   );
 }
 
