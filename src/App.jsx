@@ -13,7 +13,7 @@ const AppContainer = styled.div`
   min-height: 100vh;
   background: #010211;
   color: #ffffff;
-  overflow: hidden;
+  overflow-x: hidden;
   position: relative;
 `;
 
@@ -88,7 +88,16 @@ const createParticles = (count) => {
   }));
 };
 
-const HomePage = () => {
+const HomePage = () => (
+  <>
+    <HeroSection />
+    <FeaturesSection />
+    <DownloadSection />
+  </>
+);
+
+function App() {
+  const [isLoading, setIsLoading] = useState(true);
   const [mousePosition, setMousePosition] = useState({ x: 0.5, y: 0.5 });
   const [particles] = useState(() => createParticles(30));
   const { scrollYProgress } = useScroll();
@@ -97,6 +106,14 @@ const HomePage = () => {
     damping: 30,
     restDelta: 0.001
   });
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   const handleMouseMove = (e) => {
     const x = e.clientX / window.innerWidth;
@@ -113,7 +130,7 @@ const HomePage = () => {
   );
 
   return (
-    <>
+    <Router>
       <AnimatePresence>
         {isLoading && (
           <LoadingScreen
@@ -166,51 +183,13 @@ const HomePage = () => {
         <ContentWrapper
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 3 }}
+          transition={{ duration: 0.5, delay: isLoading ? 3 : 0 }}
         >
-          <HeroSection />
-          <FeaturesSection />
-          <DownloadSection />
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/terms" element={<TermsSection />} />
+          </Routes>
         </ContentWrapper>
-      </AppContainer>
-    </>
-  );
-};
-
-function App() {
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 3000);
-
-    return () => clearTimeout(timer);
-  }, []);
-
-  return (
-    <Router>
-      <AnimatePresence>
-        {isLoading && (
-          <LoadingScreen
-            initial={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <Lottie
-              animationData={logoAnimation}
-              loop={false}
-              style={{ width: '300px' }}
-              onComplete={() => setIsLoading(false)}
-            />
-          </LoadingScreen>
-        )}
-      </AnimatePresence>
-      <AppContainer>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/terms" element={<TermsSection />} />
-        </Routes>
       </AppContainer>
     </Router>
   );
