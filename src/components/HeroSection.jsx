@@ -192,7 +192,6 @@ export const HeroSection = () => {
   const [titleText, setTitleText] = useState('Memento');
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [error, setError] = useState('');
 
   useEffect(() => {
     const texts = ['Memento', 'Autonomous To-do list', 'Memento'];
@@ -233,29 +232,15 @@ export const HeroSection = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (isSubmitting) return;
-    setError('');
 
-    try {
-      setIsSubmitting(true);
-
-      // Firestore에 이메일 저장
-      const docRef = await addDoc(collection(db, 'subscribers'), {
-        email,
-        timestamp: new Date().toISOString(),
-        createdAt: new Date(),
-        status: 'active'
-      });
-
-      console.log('Document written with ID: ', docRef.id);
+    setIsSubmitting(true);
+    
+    // 잠시 지연 후 성공 상태로 변경
+    setTimeout(() => {
       setIsSubmitted(true);
       setEmail('');
-    } catch (error) {
-      console.error('Error submitting email:', error);
-      setError(error.message || 'Failed to subscribe. Please try again.');
-      setIsSubmitted(false);
-    } finally {
       setIsSubmitting(false);
-    }
+    }, 1000);
   };
 
   return (
@@ -294,16 +279,6 @@ export const HeroSection = () => {
             {isSubmitting ? 'Submitting...' : isSubmitted ? 'Subscribed!' : 'Get Early Access'}
           </SubmitButton>
         </EmailForm>
-        {error && (
-          <SuccessMessage
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3 }}
-            style={{ color: '#ff4444' }}
-          >
-            {error}
-          </SuccessMessage>
-        )}
         {isSubmitted && (
           <SuccessMessage
             initial={{ opacity: 0, y: 10 }}
