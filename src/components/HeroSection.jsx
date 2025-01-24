@@ -5,25 +5,19 @@ import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, addDoc } from 'firebase/firestore';
 import matrixImage from '../assets/matrix.png';
 
-let app;
-let db;
+// Firebase 초기화
+const firebaseConfig = {
+  apiKey: "AIzaSyA8R_UpnWo6doq1b7fV1ExQbn9Oaxv0CHU",
+  authDomain: "memento-landing.firebaseapp.com",
+  projectId: "memento-landing",
+  storageBucket: "memento-landing.appspot.com",
+  messagingSenderId: "787705661114",
+  appId: "1:787705661114:web:ea31cebbf9d404b49ae483",
+  measurementId: "G-VYZJDLHR0Z"
+};
 
-try {
-  const firebaseConfig = {
-    apiKey: "AIzaSyA8R_UpnWo6doq1b7fV1ExQbn9Oaxv0CHU",
-    authDomain: "memento-landing.firebaseapp.com",
-    projectId: "memento-landing",
-    storageBucket: "memento-landing.appspot.com",
-    messagingSenderId: "787705661114",
-    appId: "1:787705661114:web:ea31cebbf9d404b49ae483",
-    measurementId: "G-VYZJDLHR0Z"
-  };
-
-  app = initializeApp(firebaseConfig);
-  db = getFirestore(app);
-} catch (error) {
-  console.error("Firebase initialization error:", error);
-}
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
 
 const HeroContainer = styled.section`
   min-height: 100vh;
@@ -243,23 +237,16 @@ export const HeroSection = () => {
 
     try {
       setIsSubmitting(true);
-      
-      if (!db) {
-        throw new Error('Firebase is not initialized');
-      }
-
-      // 이메일 유효성 검사
-      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-        throw new Error('Please enter a valid email address');
-      }
 
       // Firestore에 이메일 저장
-      const subscribersRef = collection(db, 'subscribers');
-      await addDoc(subscribersRef, {
+      const docRef = await addDoc(collection(db, 'subscribers'), {
         email,
-        timestamp: new Date().toISOString()
+        timestamp: new Date().toISOString(),
+        createdAt: new Date(),
+        status: 'active'
       });
 
+      console.log('Document written with ID: ', docRef.id);
       setIsSubmitted(true);
       setEmail('');
     } catch (error) {
