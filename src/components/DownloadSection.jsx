@@ -119,7 +119,7 @@ export const DownloadSection = () => {
       </BadgeContainer>
       <Subtitle>
         Mac, Android, and iOS apps are currently in development.
-        Join us on Product Hunt in early February 2024.
+        Join us on Product Hunt in early February 2025.
       </Subtitle>
       <ButtonsContainer
         variants={containerVariants}
