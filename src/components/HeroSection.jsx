@@ -172,21 +172,24 @@ const SuccessMessage = styled(motion.div)`
 `;
 
 const SuccessParticle = styled(motion.div)`
-  position: absolute;
+  position: fixed;
   width: 8px;
   height: 8px;
   border-radius: 50%;
   background: var(--primary);
   pointer-events: none;
+  box-shadow: 0 0 10px var(--primary);
 `;
 
 const createParticles = (count) => {
   return Array.from({ length: count }, (_, i) => ({
     id: i,
-    x: Math.random() * 200 - 100, // -100 to 100
-    y: -(Math.random() * 100 + 50), // -50 to -150
-    scale: Math.random() * 0.5 + 0.5,
-    rotation: Math.random() * 360
+    x: (Math.random() - 0.5) * window.innerWidth,
+    y: -(Math.random() * window.innerHeight),
+    scale: Math.random() * 1.5 + 0.5,
+    rotation: Math.random() * 720 - 360,
+    delay: Math.random() * 0.2,
+    duration: Math.random() * 1 + 1
   }));
 };
 
@@ -270,7 +273,7 @@ export const HeroSection = () => {
       form.submit();
 
       // 파티클 생성
-      setParticles(createParticles(20));
+      setParticles(createParticles(50));
       
       // cleanup
       setTimeout(() => {
@@ -338,14 +341,16 @@ export const HeroSection = () => {
                 animate={{ 
                   x: particle.x, 
                   y: particle.y,
-                  scale: particle.scale,
+                  scale: [0, particle.scale, particle.scale * 0.5],
                   rotate: particle.rotation,
-                  opacity: 0 
+                  opacity: [1, 1, 0]
                 }}
                 exit={{ opacity: 0 }}
                 transition={{ 
-                  duration: 1,
-                  ease: "easeOut"
+                  duration: particle.duration,
+                  delay: particle.delay,
+                  ease: [0.32, 0, 0.67, 0],
+                  times: [0, 0.3, 1]
                 }}
               />
             ))}
