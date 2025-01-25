@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from '@emotion/styled';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import matrixImage from '../assets/matrix.png';
 
 const HeroContainer = styled.section`
@@ -171,11 +171,31 @@ const SuccessMessage = styled(motion.div)`
   margin-top: 0.5rem;
 `;
 
+const SuccessParticle = styled(motion.div)`
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--primary);
+  pointer-events: none;
+`;
+
+const createParticles = (count) => {
+  return Array.from({ length: count }, (_, i) => ({
+    id: i,
+    x: Math.random() * 200 - 100, // -100 to 100
+    y: -(Math.random() * 100 + 50), // -50 to -150
+    scale: Math.random() * 0.5 + 0.5,
+    rotation: Math.random() * 360
+  }));
+};
+
 export const HeroSection = () => {
   const [email, setEmail] = useState('');
   const [titleText, setTitleText] = useState('Memento');
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [particles, setParticles] = useState([]);
 
   useEffect(() => {
     const texts = ['Memento', 'Autonomous To-do list', 'Memento'];
@@ -223,11 +243,17 @@ export const HeroSection = () => {
       // Google Forms 제출
       const formUrl = 'https://docs.google.com/forms/d/1Hx7mXB9n0upBQnvIO9dFZTU53MAOqF9aYf9zvcGbz2Y/formResponse';
       
+      // 숨겨진 iframe 생성
+      const iframe = document.createElement('iframe');
+      iframe.name = 'hidden_iframe';
+      iframe.style.display = 'none';
+      document.body.appendChild(iframe);
+
       // 숨겨진 form 생성
       const form = document.createElement('form');
       form.method = 'POST';
       form.action = formUrl;
-      form.target = '_blank';
+      form.target = 'hidden_iframe';
       form.style.display = 'none';
 
       // 이메일 입력 필드 생성
@@ -242,7 +268,16 @@ export const HeroSection = () => {
       
       // form 제출
       form.submit();
-      document.body.removeChild(form);
+
+      // 파티클 생성
+      setParticles(createParticles(20));
+      
+      // cleanup
+      setTimeout(() => {
+        document.body.removeChild(form);
+        document.body.removeChild(iframe);
+        setParticles([]);
+      }, 2000);
 
       // 성공 상태로 변경
       setIsSubmitted(true);
@@ -289,6 +324,32 @@ export const HeroSection = () => {
           >
             {isSubmitting ? 'Submitting...' : isSubmitted ? 'Subscribed!' : 'Get Early Access'}
           </SubmitButton>
+          <AnimatePresence>
+            {particles.map((particle) => (
+              <SuccessParticle
+                key={particle.id}
+                initial={{ 
+                  x: 0, 
+                  y: 0, 
+                  scale: 0,
+                  rotate: 0,
+                  opacity: 1 
+                }}
+                animate={{ 
+                  x: particle.x, 
+                  y: particle.y,
+                  scale: particle.scale,
+                  rotate: particle.rotation,
+                  opacity: 0 
+                }}
+                exit={{ opacity: 0 }}
+                transition={{ 
+                  duration: 1,
+                  ease: "easeOut"
+                }}
+              />
+            ))}
+          </AnimatePresence>
         </EmailForm>
         {isSubmitted && (
           <SuccessMessage
