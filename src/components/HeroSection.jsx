@@ -1,23 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from '@emotion/styled';
 import { motion } from 'framer-motion';
-import { initializeApp } from 'firebase/app';
-import { getFirestore, collection, addDoc } from 'firebase/firestore';
 import matrixImage from '../assets/matrix.png';
-
-// Firebase 초기화
-const firebaseConfig = {
-  apiKey: "AIzaSyA8R_UpnWo6doq1b7fV1ExQbn9Oaxv0CHU",
-  authDomain: "memento-landing.firebaseapp.com",
-  projectId: "memento-landing",
-  storageBucket: "memento-landing.appspot.com",
-  messagingSenderId: "787705661114",
-  appId: "1:787705661114:web:ea31cebbf9d404b49ae483",
-  measurementId: "G-VYZJDLHR0Z"
-};
-
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
 
 const HeroContainer = styled.section`
   min-height: 100vh;
@@ -233,14 +217,41 @@ export const HeroSection = () => {
     e.preventDefault();
     if (isSubmitting) return;
 
-    setIsSubmitting(true);
-    
-    // 잠시 지연 후 성공 상태로 변경
-    setTimeout(() => {
+    try {
+      setIsSubmitting(true);
+      
+      // Google Forms 제출
+      const formUrl = 'https://docs.google.com/forms/d/1Hx7mXB9n0upBQnvIO9dFZTU53MAOqF9aYf9zvcGbz2Y/formResponse';
+      
+      // 숨겨진 form 생성
+      const form = document.createElement('form');
+      form.method = 'POST';
+      form.action = formUrl;
+      form.target = '_blank';
+      form.style.display = 'none';
+
+      // 이메일 입력 필드 생성
+      const input = document.createElement('input');
+      input.type = 'text';
+      input.name = 'entry.1033184938';
+      input.value = email;
+
+      // form에 입력 필드 추가
+      form.appendChild(input);
+      document.body.appendChild(form);
+      
+      // form 제출
+      form.submit();
+      document.body.removeChild(form);
+
+      // 성공 상태로 변경
       setIsSubmitted(true);
       setEmail('');
+    } catch (error) {
+      console.error('Error submitting email:', error);
+    } finally {
       setIsSubmitting(false);
-    }, 1000);
+    }
   };
 
   return (
