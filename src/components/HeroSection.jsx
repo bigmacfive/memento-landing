@@ -307,7 +307,7 @@ export const HeroSection = () => {
         transition={{ duration: 0.5, delay: 0.4 }}
       >
         <LaunchInfo>
-          <p>🚀 Launching on Product Hunt in Early April 2025</p>
+          <p>🚀 Launching on Product Hunt in Summer</p>
           <p>Currently in Beta Testing</p>
         </LaunchInfo>
         <EmailForm onSubmit={handleSubmit}>
