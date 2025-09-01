@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { motion } from 'framer-motion';
+import { FooterSection } from './FooterSection.jsx';
 
 const EULAContainer = styled.section`
   min-height: 100vh;
@@ -77,7 +78,8 @@ const SubTitle = styled.h3`
 
 export const EULASection = () => {
   return (
-    <EULAContainer>
+    <>
+      <EULAContainer>
       <Content>
         <Title
           initial={{ opacity: 0, y: 20 }}
@@ -374,5 +376,6 @@ export const EULASection = () => {
         </Section>
       </Content>
     </EULAContainer>
-  );
-};
+    <FooterSection />
+  </>
+);

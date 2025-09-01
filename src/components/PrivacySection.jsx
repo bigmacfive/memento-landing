@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { motion } from 'framer-motion';
+import { FooterSection } from './FooterSection.jsx';
 
 const PrivacyContainer = styled.section`
   min-height: 100vh;
@@ -77,7 +78,8 @@ const SubTitle = styled.h3`
 
 export const PrivacySection = () => {
   return (
-    <PrivacyContainer>
+    <>
+      <PrivacyContainer>
       <Content>
         <Title
           initial={{ opacity: 0, y: 20 }}
@@ -363,5 +365,6 @@ export const PrivacySection = () => {
         </Section>
       </Content>
     </PrivacyContainer>
-  );
-};
+    <FooterSection />
+  </>
+);

@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { motion } from 'framer-motion';
+import { FooterSection } from './FooterSection.jsx';
 
 const TermsContainer = styled.section`
   min-height: 100vh;
@@ -77,15 +78,16 @@ const SubTitle = styled.h3`
 
 export const TermsSection = () => {
   return (
-    <TermsContainer>
-      <Content>
-        <Title
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          Terms of Service
-        </Title>
+    <>
+      <TermsContainer>
+        <Content>
+          <Title
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            Terms of Service
+          </Title>
 
         <Section>
           <SectionTitle>1. Service Introduction and Definition</SectionTitle>
@@ -360,5 +362,6 @@ export const TermsSection = () => {
         </Section>
       </Content>
     </TermsContainer>
-  );
-}; 
+    <FooterSection />
+  </>
+); 

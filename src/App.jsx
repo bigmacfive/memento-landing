@@ -7,6 +7,9 @@ import { HeroSection } from './components/HeroSection.jsx';
 import { FeaturesSection } from './components/FeaturesSection.jsx';
 import { DownloadSection } from './components/DownloadSection.jsx';
 import { TermsSection } from './components/TermsSection.jsx';
+import { PrivacySection } from './components/PrivacySection.jsx';
+import { EULASection } from './components/EULASection.jsx';
+import { FooterSection } from './components/FooterSection.jsx';
 import logoAnimation from '/memento_logo_animation.json';
 
 const AppContainer = styled.div`
@@ -93,6 +96,7 @@ const HomePage = () => (
     <HeroSection />
     <FeaturesSection />
     <DownloadSection />
+    <FooterSection />
   </>
 );
 
@@ -188,6 +192,8 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/terms" element={<TermsSection />} />
+            <Route path="/privacy" element={<PrivacySection />} />
+            <Route path="/eula" element={<EULASection />} />
           </Routes>
         </ContentWrapper>
       </AppContainer>
