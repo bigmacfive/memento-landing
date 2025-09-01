@@ -353,8 +353,8 @@ export const TermsSection = () => {
             <SubTitle>Customer Support</SubTitle>
             <List>
               <li>Email: memento.computer@gmail.com</li>
+              <li>Feature Requests & Feedback: memento.featurebase.app</li>
               <li>Response time: Within 24 hours on business days</li>
-              <li>Emergency inquiries: In-service chat support</li>
             </List>
           </SubSection>
         </Section>
