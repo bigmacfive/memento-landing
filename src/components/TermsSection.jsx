@@ -364,4 +364,5 @@ export const TermsSection = () => {
     </TermsContainer>
     <FooterSection />
   </>
-); 
+);
+}; 

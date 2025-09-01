@@ -19,7 +19,7 @@ const FooterContent = styled.div`
   gap: 2rem;
 `;
 
-const FooterSection = styled.div`
+const FooterSectionContainer = styled.div`
   display: flex;
   flex-direction: column;
 `;
@@ -75,16 +75,16 @@ export const FooterSection = () => {
   return (
     <FooterContainer>
       <FooterContent>
-        <FooterSection>
+        <FooterSectionContainer>
           <FooterTitle>Product</FooterTitle>
           <FooterLink to="/">Home</FooterLink>
           <FooterLink to="/features">Features</FooterLink>
           <ExternalLink href="https://memento.featurebase.app" target="_blank" rel="noopener noreferrer">
             Feature Requests
           </ExternalLink>
-        </FooterSection>
+        </FooterSectionContainer>
 
-        <FooterSection>
+        <FooterSectionContainer>
           <FooterTitle>Support</FooterTitle>
           <ExternalLink href="mailto:memento.computer@gmail.com">
             Contact Us
@@ -93,21 +93,21 @@ export const FooterSection = () => {
             Feedback & Ideas
           </ExternalLink>
           <FooterText>Response time: 24 hours</FooterText>
-        </FooterSection>
+        </FooterSectionContainer>
 
-        <FooterSection>
+        <FooterSectionContainer>
           <FooterTitle>Legal</FooterTitle>
           <FooterLink to="/terms">Terms of Service</FooterLink>
           <FooterLink to="/privacy">Privacy Policy</FooterLink>
           <FooterLink to="/eula">End User License Agreement</FooterLink>
-        </FooterSection>
+        </FooterSectionContainer>
 
-        <FooterSection>
+        <FooterSectionContainer>
           <FooterTitle>Company</FooterTitle>
           <FooterText>Memento</FooterText>
           <FooterText>Time Management & Productivity Tool</FooterText>
           <FooterText>Empowering teams to work smarter</FooterText>
-        </FooterSection>
+        </FooterSectionContainer>
       </FooterContent>
 
       <Copyright>
