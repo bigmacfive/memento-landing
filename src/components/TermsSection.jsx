@@ -88,279 +88,273 @@ export const TermsSection = () => {
         </Title>
 
         <Section>
-          <SectionTitle>1. 서비스 소개 및 정의</SectionTitle>
+          <SectionTitle>1. Service Introduction and Definition</SectionTitle>
           <Text>
-            Memento는 개인 및 팀의 시간 관리를 위한 종합적인 생산성 도구입니다. 본 서비스 이용약관("약관")은 
-            Memento의 웹사이트, 모바일 애플리케이션, API 서비스 및 기타 관련 소프트웨어와 서비스("서비스")의 
-            이용과 관련된 모든 사항을 규정합니다.
+            Memento is a comprehensive productivity tool designed for individual and team time management. 
+            These Terms of Service ("Terms") govern all aspects of your access to and use of Memento's 
+            services, including our website, mobile applications, API services, and any other related 
+            software and services ("Services").
           </Text>
           <SubSection>
-            <SubTitle>서비스 구성요소</SubTitle>
+            <SubTitle>Service Components</SubTitle>
             <List>
-              <li>시간 추적 및 기록 기능</li>
-              <li>프로젝트 및 태스크 관리</li>
-              <li>팀 협업 및 공유 기능</li>
-              <li>데이터 분석 및 리포트 생성</li>
-              <li>API 및 타사 서비스 연동</li>
+              <li>Time tracking and recording functionality</li>
+              <li>Project and task management tools</li>
+              <li>Team collaboration and sharing features</li>
+              <li>Data analysis and report generation</li>
+              <li>API and third-party service integrations</li>
             </List>
           </SubSection>
         </Section>
 
         <Section>
-          <SectionTitle>2. 서비스 이용 조건</SectionTitle>
+          <SectionTitle>2. Service Usage Conditions</SectionTitle>
           <Text>
-            Memento 서비스를 이용함에 있어 다음 조건들을 준수해야 합니다. 본 약관을 위반하는 경우 
-            서비스 이용이 제한되거나 계정이 정지될 수 있습니다.
+            You must comply with the following conditions when using Memento services. Violation of 
+            these terms may result in service restrictions or account suspension.
           </Text>
           <SubSection>
-            <SubTitle>이용 자격</SubTitle>
+            <SubTitle>Eligibility Requirements</SubTitle>
             <List>
-              <li>만 14세 이상의 개인 또는 법인</li>
-              <li>유효한 이메일 주소 및 연락처 정보 제공</li>
-              <li>관련 법령 및 본 약관 준수 의사</li>
+              <li>Individuals or entities aged 14 or older</li>
+              <li>Valid email address and contact information provision</li>
+              <li>Commitment to comply with relevant laws and these terms</li>
             </List>
           </SubSection>
           <SubSection>
-            <SubTitle>계정 관리 의무</SubTitle>
+            <SubTitle>Account Management Obligations</SubTitle>
             <List>
-              <li>계정 정보의 정확성 및 최신성 유지</li>
-              <li>계정 보안을 위한 비밀번호 관리</li>
-              <li>무단 사용 방지를 위한 로그아웃 관리</li>
-              <li>계정 도용 의심 시 즉시 신고</li>
+              <li>Maintain accuracy and currency of account information</li>
+              <li>Manage passwords for account security</li>
+              <li>Manage logout to prevent unauthorized use</li>
+              <li>Report suspected account theft immediately</li>
             </List>
           </SubSection>
           <SubSection>
-            <SubTitle>금지 행위</SubTitle>
+            <SubTitle>Prohibited Activities</SubTitle>
             <List>
-              <li>서비스의 무단 복제, 배포, 수정</li>
-              <li>다른 사용자의 계정 정보 도용</li>
-              <li>서비스 서버에 과도한 부하 발생</li>
-              <li>불법적이거나 유해한 콘텐츠 업로드</li>
-              <li>타인의 지적재산권 침해</li>
+              <li>Unauthorized copying, distribution, or modification of services</li>
+              <li>Theft of other users' account information</li>
+              <li>Causing excessive load on service servers</li>
+              <li>Uploading illegal or harmful content</li>
+              <li>Infringement of others' intellectual property rights</li>
             </List>
           </SubSection>
         </Section>
 
         <Section>
-          <SectionTitle>3. 개인정보 보호 및 데이터 관리</SectionTitle>
+          <SectionTitle>3. Privacy Protection and Data Management</SectionTitle>
           <Text>
-            Memento는 사용자의 개인정보 보호를 최우선으로 합니다. 본 서비스는 개인정보보호법 및 
-            관련 법령을 준수하여 운영됩니다.
+            Memento prioritizes user privacy protection. Our service operates in compliance with 
+            privacy protection laws and related regulations.
           </Text>
           <SubSection>
-            <SubTitle>수집하는 개인정보</SubTitle>
+            <SubTitle>Personal Information Collected</SubTitle>
             <List>
-              <li>계정 생성 시: 이메일, 이름, 비밀번호</li>
-              <li>서비스 이용 시: 시간 기록, 프로젝트 정보, 팀 데이터</li>
-              <li>기술적 정보: IP 주소, 브라우저 정보, 디바이스 정보</li>
-              <li>결제 정보: 유료 서비스 이용 시 결제 관련 정보</li>
+              <li>Account creation: Email, name, password</li>
+              <li>Service usage: Time records, project information, team data</li>
+              <li>Technical information: IP address, browser information, device information</li>
+              <li>Payment information: Payment-related information for paid services</li>
             </List>
           </SubSection>
           <SubSection>
-            <SubTitle>데이터 보호 조치</SubTitle>
+            <SubTitle>Data Protection Measures</SubTitle>
             <List>
-              <li>SSL 암호화를 통한 데이터 전송 보안</li>
-              <li>데이터베이스 접근 권한 관리</li>
-              <li>정기적인 보안 감사 및 업데이트</li>
-              <li>개인정보 접근 로그 관리</li>
+              <li>SSL encryption for secure data transmission</li>
+              <li>Database access permission management</li>
+              <li>Regular security audits and updates</li>
+              <li>Personal information access log management</li>
             </List>
           </SubSection>
           <SubSection>
-            <SubTitle>데이터 보관 및 삭제</SubTitle>
+            <SubTitle>Data Retention and Deletion</SubTitle>
             <List>
-              <li>서비스 이용 중인 데이터: 계속 보관</li>
-              <li>계정 탈퇴 시: 30일 내 완전 삭제</li>
-              <li>법적 요구사항에 따른 보관: 관련 법령 준수</li>
+              <li>Active service data: Continuous retention</li>
+              <li>Account deletion: Complete deletion within 30 days</li>
+              <li>Legal requirement retention: Compliance with relevant laws</li>
             </List>
           </SubSection>
         </Section>
 
         <Section>
-          <SectionTitle>4. 서비스 기능 및 제한사항</SectionTitle>
+          <SectionTitle>4. Service Features and Limitations</SectionTitle>
           <Text>
-            Memento는 지속적인 서비스 개선을 위해 기능을 추가, 수정 또는 중단할 수 있습니다. 
-            서비스 이용에 따른 제한사항을 명확히 이해하시기 바랍니다.
+            Memento may add, modify, or discontinue features for continuous service improvement. 
+            Please clearly understand the limitations associated with service usage.
           </Text>
           <SubSection>
-            <SubTitle>무료 서비스 제한</SubTitle>
+            <SubTitle>Free Service Limitations</SubTitle>
             <List>
-              <li>월간 시간 기록 제한: 100시간</li>
-              <li>프로젝트 생성 제한: 5개</li>
-              <li>팀원 초대 제한: 3명</li>
-              <li>데이터 내보내기 제한: 월 1회</li>
-              <li>고급 분석 기능 제한</li>
+              <li>Monthly time recording limit: 100 hours</li>
+              <li>Project creation limit: 5 projects</li>
+              <li>Team member invitation limit: 3 members</li>
+              <li>Data export limit: Once per month</li>
+              <li>Advanced analytics features restricted</li>
             </List>
           </SubSection>
           <SubSection>
-            <SubTitle>유료 서비스 혜택</SubTitle>
+            <SubTitle>Paid Service Benefits</SubTitle>
             <List>
-              <li>무제한 시간 기록 및 프로젝트</li>
-              <li>무제한 팀원 초대</li>
-              <li>고급 분석 및 리포트 기능</li>
-              <li>우선 고객 지원</li>
-              <li>API 접근 권한</li>
+              <li>Unlimited time recording and projects</li>
+              <li>Unlimited team member invitations</li>
+              <li>Advanced analytics and reporting features</li>
+              <li>Priority customer support</li>
+              <li>API access permissions</li>
             </List>
           </SubSection>
           <SubSection>
-            <SubTitle>서비스 가용성</SubTitle>
+            <SubTitle>Service Availability</SubTitle>
             <List>
-              <li>목표 가용성: 월 99.5% 이상</li>
-              <li>정기 점검: 월 1회 (사전 공지)</li>
-              <li>긴급 점검: 필요 시 즉시 진행</li>
-              <li>서비스 중단 시 사전 공지 의무</li>
+              <li>Target availability: 99.5% or higher monthly</li>
+              <li>Regular maintenance: Monthly (advance notice provided)</li>
+              <li>Emergency maintenance: Immediate when necessary</li>
+              <li>Obligation to provide advance notice for service suspension</li>
             </List>
           </SubSection>
         </Section>
 
         <Section>
-          <SectionTitle>5. 지적재산권 및 라이선스</SectionTitle>
+          <SectionTitle>5. Intellectual Property Rights and Licensing</SectionTitle>
           <Text>
-            Memento 서비스와 관련된 모든 지적재산권은 Memento 또는 라이선서에게 귀속됩니다. 
-            사용자는 본 약관에 따라 제한된 라이선스를 받습니다.
+            All intellectual property rights related to Memento services belong to Memento or 
+            licensors. Users receive limited licenses according to these terms.
           </Text>
           <SubSection>
-            <SubTitle>Memento의 권리</SubTitle>
+            <SubTitle>Memento's Rights</SubTitle>
             <List>
-              <li>서비스 소프트웨어 및 기술에 대한 저작권</li>
-              <li>Memento 브랜드 및 로고에 대한 상표권</li>
-              <li>서비스 디자인 및 UI에 대한 디자인권</li>
-              <li>사용자 데이터의 집계 및 분석 권한</li>
+              <li>Copyrights to service software and technology</li>
+              <li>Trademark rights to Memento brand and logo</li>
+              <li>Design rights to service design and UI</li>
+              <li>Permission for user data aggregation and analysis</li>
             </List>
           </SubSection>
           <SubSection>
-            <SubTitle>사용자의 권리</SubTitle>
+            <SubTitle>User Rights</SubTitle>
             <List>
-              <li>본인 데이터에 대한 완전한 소유권</li>
-              <li>데이터 내보내기 및 이전 권한</li>
-              <li>서비스 개선 제안 권한</li>
-              <li>공정한 서비스 이용 권한</li>
+              <li>Complete ownership of personal data</li>
+              <li>Permission for data export and transfer</li>
+              <li>Permission to suggest service improvements</li>
+              <li>Right to fair service usage</li>
             </List>
           </SubSection>
         </Section>
 
         <Section>
-          <SectionTitle>6. 책임 및 면책</SectionTitle>
+          <SectionTitle>6. Liability and Disclaimers</SectionTitle>
           <Text>
-            서비스 이용과 관련된 책임의 범위와 한계를 명확히 규정합니다.
+            This section clearly defines the scope and limitations of liability related to service usage.
           </Text>
           <SubSection>
-            <SubTitle>Memento의 책임</SubTitle>
+            <SubTitle>Memento's Responsibilities</SubTitle>
             <List>
-              <li>서비스 제공 의무 및 보안 유지</li>
-              <li>개인정보 보호 및 데이터 보안</li>
-              <li>서비스 장애 시 신속한 복구</li>
-              <li>약관에 따른 서비스 제공</li>
+              <li>Service provision obligation and security maintenance</li>
+              <li>Privacy protection and data security</li>
+              <li>Rapid recovery in case of service failures</li>
+              <li>Service provision according to terms</li>
             </List>
           </SubSection>
           <SubSection>
-            <SubTitle>면책 사항</SubTitle>
+            <SubTitle>Disclaimer Items</SubTitle>
             <List>
-              <li>천재지변, 전쟁 등 불가항력적 사유로 인한 서비스 중단</li>
-              <li>사용자의 부주의로 인한 데이터 손실</li>
-              <li>타사 서비스 연동으로 인한 문제</li>
-              <li>사용자의 약관 위반으로 인한 손해</li>
+              <li>Service suspension due to force majeure events like natural disasters or war</li>
+              <li>Data loss due to user negligence</li>
+              <li>Problems arising from third-party service integrations</li>
+              <li>Damages caused by user violation of terms</li>
             </List>
           </SubSection>
           <SubSection>
-            <SubTitle>손해배상 한계</SubTitle>
+            <SubTitle>Limitation of Damages</SubTitle>
             <List>
-              <li>간접손해, 특별손해, 결과손해 배제</li>
-              <li>월 이용료의 3배를 초과하는 배상 제한</li>
-              <li>과실상계 원칙 적용</li>
+              <li>Exclusion of indirect, special, and consequential damages</li>
+              <li>Compensation limited to 3 times monthly usage fee</li>
+              <li>Application of comparative negligence principle</li>
             </List>
           </SubSection>
         </Section>
 
         <Section>
-          <SectionTitle>7. 약관 변경 및 해지</SectionTitle>
+          <SectionTitle>7. Terms Modification and Termination</SectionTitle>
           <Text>
-            서비스 개선 및 법령 변경에 따라 약관이 변경될 수 있습니다. 
-            변경사항은 사전 공지 후 적용됩니다.
+            Terms may be modified due to service improvements and legal changes. 
+            Changes will be applied after advance notice.
           </Text>
           <SubSection>
-            <SubTitle>약관 변경 절차</SubTitle>
+            <SubTitle>Terms Modification Procedure</SubTitle>
             <List>
-              <li>변경 사항 사전 공지: 30일 전</li>
-              <li>공지 방법: 이메일, 서비스 내 공지</li>
-              <li>중대한 변경 시 별도 동의 요청</li>
-              <li>변경 약관에 대한 거부권 보장</li>
+              <li>Advance notice of changes: 30 days prior</li>
+              <li>Notification methods: Email, in-service notice</li>
+              <li>Separate consent request for significant changes</li>
+              <li>Guarantee of right to reject modified terms</li>
             </List>
           </SubSection>
           <SubSection>
-            <SubTitle>서비스 해지</SubTitle>
+            <SubTitle>Service Termination</SubTitle>
             <List>
-              <li>사용자 해지: 언제든지 가능 (환불 정책 적용)</li>
-              <li>Memento 해지: 약관 위반 시 즉시 해지</li>
-              <li>해지 후 데이터 처리: 30일 내 완전 삭제</li>
-              <li>해지 시 미사용 요금 환불</li>
+              <li>User termination: Available anytime (refund policy applies)</li>
+              <li>Memento termination: Immediate termination for terms violation</li>
+              <li>Data processing after termination: Complete deletion within 30 days</li>
+              <li>Refund of unused fees upon termination</li>
             </List>
           </SubSection>
         </Section>
 
         <Section>
-          <SectionTitle>8. 분쟁 해결 및 관할</SectionTitle>
+          <SectionTitle>8. Dispute Resolution and Jurisdiction</SectionTitle>
           <Text>
-            서비스 이용과 관련된 분쟁이 발생할 경우의 해결 방법과 관할 법원을 규정합니다.
+            This section defines the resolution methods and jurisdiction for disputes 
+            arising from service usage.
           </Text>
           <SubSection>
-            <SubTitle>분쟁 해결 절차</SubTitle>
+            <SubTitle>Dispute Resolution Process</SubTitle>
             <List>
-              <li>1차: 고객 지원팀을 통한 협의</li>
-              <li>2차: 중재 또는 조정</li>
-              <li>3차: 관할 법원을 통한 소송</li>
+              <li>First step: Consultation through customer support team</li>
+              <li>Second step: Mediation or arbitration</li>
+              <li>Third step: Litigation through competent court</li>
             </List>
           </SubSection>
           <SubSection>
-            <SubTitle>관할 법원</SubTitle>
+            <SubTitle>Competent Court</SubTitle>
             <List>
-              <li>본사 소재지 관할 법원</li>
-              <li>소비자 거주지 관할 법원 (소비자 분쟁)</li>
+              <li>Court with jurisdiction over headquarters location</li>
+              <li>Court with jurisdiction over consumer residence (consumer disputes)</li>
             </List>
           </SubSection>
         </Section>
 
         <Section>
-          <SectionTitle>9. 기타 조항</SectionTitle>
+          <SectionTitle>9. Miscellaneous Provisions</SectionTitle>
           <Text>
-            본 약관에서 규정하지 않은 사항은 관련 법령 및 상관례에 따릅니다.
+            Matters not regulated in these terms shall follow relevant laws and commercial practices.
           </Text>
           <SubSection>
-            <SubTitle>준거법</SubTitle>
+            <SubTitle>Governing Law</SubTitle>
             <List>
-              <li>대한민국 법령</li>
-              <li>국제사법에 따른 준거법</li>
+              <li>Laws of the Republic of Korea</li>
+              <li>Governing law according to international private law</li>
             </List>
           </SubSection>
           <SubSection>
-            <SubTitle>약관 효력</SubTitle>
+            <SubTitle>Terms Effectiveness</SubTitle>
             <List>
-              <li>일부 조항 무효 시 나머지 조항 유효</li>
-              <li>약관 해석 시 사용자에게 유리하게</li>
-              <li>불명확한 조항은 Memento가 해석</li>
+              <li>Remaining terms valid if some provisions are invalid</li>
+              <li>Terms interpretation favorable to users</li>
+              <li>Memento to interpret unclear provisions</li>
             </List>
           </SubSection>
         </Section>
 
         <Section>
-          <SectionTitle>10. 문의 및 연락처</SectionTitle>
+          <SectionTitle>10. Contact Information</SectionTitle>
           <Text>
-            본 약관과 관련된 문의사항이나 서비스 이용 중 발생하는 문제에 대해 
-            언제든지 연락주시기 바랍니다.
+            Please contact us anytime for questions about these terms or problems 
+            arising during service usage.
           </Text>
           <SubSection>
-            <SubTitle>고객 지원</SubTitle>
+            <SubTitle>Customer Support</SubTitle>
             <List>
-              <li>이메일: memento.computer@gmail.com</li>
-              <li>응답 시간: 영업일 기준 24시간 내</li>
-              <li>긴급 문의: 서비스 내 채팅 지원</li>
-            </List>
-          </SubSection>
-          <SubSection>
-            <SubTitle>회사 정보</SubTitle>
-            <List>
-              <li>서비스명: Memento</li>
-              <li>서비스 유형: 시간 관리 및 생산성 도구</li>
-              <li>최종 업데이트: 2024년 12월</li>
+              <li>Email: memento.computer@gmail.com</li>
+              <li>Response time: Within 24 hours on business days</li>
+              <li>Emergency inquiries: In-service chat support</li>
             </List>
           </SubSection>
         </Section>
